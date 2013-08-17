@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Our Amazing Saturday App</title>
+</head>
+<body>
+<div id="main">
+
+</div>
+<p id="fruit">I like strawberries</p>
+
+<script type="x-handlebars-template">
+
+</script>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+    <script>
+	var MainView = Backbone.View.extend({
+		el : $('#fruit'), // select a pre-existing element on the page 
+		 //id: 'fruit',		// create a new element by either tagname or class or id
+		//tagName: 'p',		// create a new element
+		initialize: function() {
+			//this.$el.append("stuff!");
+			this.$el.append("!!!!!");		// the $ gives us the cached jQuery element (i.e. the element that exists already)
+		}
+			
+	});
+	var main = new MainView();
+	</script>
+
+
+</body>
+</html>
