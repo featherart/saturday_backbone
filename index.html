@@ -63,16 +63,25 @@
 	var main = new MainView();
 
 	var BookView = Backbone.View.extend({
+
+		events: {
+			"click" : "bookNameAlert"
+		},
+		// Passing in book => this allows for line 71
 		initialize: function(book) {
 			var src = $("#book-template").html();
 			var template = Handlebars.compile(src);
 			this.template = template;
-			this.model = book;
+			this.model = book; // sets the book to the views model
 		},
 		render: function() {
-			var book_item = this.$el.append(this.template(this.model.attributes));
-			$("body").append(book_item);
+			var book_item = this.$el.append(this.template(this.model.attributes)); //we pass through the "book" and its attributes (these attributes are being printed in the "book-template")
+			$("body").append(book_item); // appending the book to the body
 
+		},
+
+		bookNameAlert: function(){
+			alert(this.model.get("title"));
 		}
 	});
 
@@ -84,9 +93,9 @@
 		}
 	});
 
-	var book = new Book();
-	var bookView = new BookView(book);
-	bookView.render();
+	var book = new Book(); // creating a new instance of a book
+	var bookView = new BookView(book); // creating new instance of a book view AND passing in the book object we just created. Notice in the initialize function we are passing through the book
+	bookView.render(); // this renders the book that has already been set to the bookView's model in the initialized function and referred to as this.model in the render function
 
 	</script>
 
