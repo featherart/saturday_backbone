@@ -73,10 +73,11 @@
 			var template = Handlebars.compile(src);
 			this.template = template;
 			this.model = book; // sets the book to the views model
+			this.listenTo(this.model, "change", this.render); //if we change one of the attributes of the model, it will re-render the template with the new information
 		},
 		render: function() {
-			var book_item = this.$el.append(this.template(this.model.attributes)); //we pass through the "book" and its attributes (these attributes are being printed in the "book-template")
-			$("body").append(book_item); // appending the book to the body
+			var book_item = this.$el.html(this.template(this.model.attributes)); //we pass through the "book" and its attributes (these attributes are being printed in the "book-template")
+			$("body").html(book_item); // setting the html of the body to the book
 
 		},
 
