@@ -24,9 +24,20 @@
 		el : $('#fruit'), // select a pre-existing element on the page 
 		 //id: 'fruit',		// create a new element by either tagname or class or id
 		//tagName: 'p',		// create a new element
+		events: {
+			'click' : "alarm",  // in jQuery $('#fruit').click(function() { alert(); });
+			'mouseover h1' : "hoverCraft" // in jQuery $('#fruit, h1').mouseover(function(){});
+		},
 		initialize: function() {
 			//this.$el.append("stuff!");
-			this.$el.append("!!!!!");		// the $ gives us the cached jQuery element (i.e. the element that exists already)
+			this.$el.append("<h1>blahblahblah</h1>");		// the $ gives us the cached jQuery element (i.e. the element that exists already)
+		},
+		alarm : function() {
+			alert("time to ride your bike!!");
+		},
+		hoverCraft: function() {
+			console.log("please turn red!");
+			this.$el.children().css("color", "red");
 		}
 			
 	});
