@@ -97,6 +97,19 @@
 	var bookView = new BookView(book); // creating new instance of a book view AND passing in the book object we just created. Notice in the initialize function we are passing through the book
 	bookView.render(); // this renders the book that has already been set to the bookView's model in the initialized function and referred to as this.model in the render function
 
+	var Books = Backbone.Collection.extend({
+		model: Book,
+
+		initialize: function(){
+			this.on("add", this.update); //
+		},
+
+		update: function(){
+			alert("I am a collection and now have " + this.length);
+		}
+
+	})
+
 	</script>
 
 
