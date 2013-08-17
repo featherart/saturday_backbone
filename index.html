@@ -63,28 +63,33 @@
 	var main = new MainView();
 
 	var BookView = Backbone.View.extend({
-		initialize: function() {
+		initialize: function(book) {
 			var src = $("#book-template").html();
 			var template = Handlebars.compile(src);
 			this.template = template;
+			this.model = book;
 		},
-		render: function(book) {
-			var vook = this.$el.append(this.template(book));
-			$("body").append(vook);
-			
+		render: function() {
+			var book_item = this.$el.append(this.template(this.model.attributes));
+			$("body").append(book_item);
+
 		}
 	});
 
 	var Book = Backbone.Model.extend({
-		default: {
+		defaults: {
 			title: "The Sorcerer's Stone",
 			author: "JKR",
 			synopsis: "Really good book about magic stones!"
 		}
 	});
 
+	var book = new Book();
+	var bookView = new BookView(book);
+	bookView.render();
 
 	</script>
+
 
 
 </body>
