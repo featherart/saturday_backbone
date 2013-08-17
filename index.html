@@ -101,11 +101,11 @@
 		model: Book,
 
 		initialize: function(){
-			this.on("add", this.update); //
+			this.on("add", this.update); // adding event listener on the books collection that gets called when you "add" to this collection
 		},
 
 		update: function(){
-			alert("I am a collection and now have " + this.length);
+			alert("I am a collection and now have " + this.length); // this defines the update function that gets applied to the collection in the initialize
 		}
 
 	})
