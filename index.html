@@ -9,8 +9,13 @@
 </div>
 <p id="fruit">I like strawberries</p>
 
-<script type="x-handlebars-template">
-
+<script id="mr-template" type="x-handlebars-template">
+	<h1>
+	Bladdy-blah
+	</h1>
+</script>
+<script id="ms-template" type="x-handlebars-template">
+	<h1>Hello my name is {{name}}</h1>
 </script>
 
 
@@ -29,8 +34,14 @@
 			'mouseover h1' : "hoverCraft" // in jQuery $('#fruit, h1').mouseover(function(){});
 		},
 		initialize: function() {
+			var src = $('#mr-template').html();
+			var template = Handlebars.compile(src);
+			this.$el.append(template());
+			var src2 = $('#ms-template').html();
+			var template2 = Handlebars.compile(src2);
+			this.$el.append(template2({name: "Bubba"}));
 			//this.$el.append("stuff!");
-			this.$el.append("<h1>blahblahblah</h1>");		// the $ gives us the cached jQuery element (i.e. the element that exists already)
+			//this.$el.append(); // the $ gives us the cached jQuery element (i.e. the element that exists already)
 		},
 		alarm : function() {
 			alert("time to ride your bike!!");
