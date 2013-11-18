@@ -1,0 +1,1 @@
+This is an in-class code-along to demonstrate use of Models and Views in Backbone.js.
